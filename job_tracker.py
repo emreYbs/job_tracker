@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+# @author Emre | github.com/emreYbs
 
 import click
 from click_didyoumean import DYMGroup
@@ -6,7 +9,11 @@ import click_config_file
 from click_help_colors import HelpColorsGroup,HelpColorsCommand
 from pkg_resources import iter_entry_points
 import sqlite3
+from pyfiglet import Figlet
 
+custom_fig = Figlet(font='cyberlarge')
+print("\n\n")
+print(custom_fig.renderText('JobTracker'))
 # DataBase
 conn = sqlite3.connect('data.db')
 c = conn.cursor()
@@ -113,8 +120,6 @@ def add_job(name,address,email,title,jobtype,salary,status):
 		['Job Type:',jobtype],
 		['Job Salary:',salary],
 		['Status:',status]
-	
-	
 	]
 	create_table()
 	add_data(name,address,email,title,jobtype,salary,status)
